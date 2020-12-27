@@ -72,8 +72,8 @@ func main() {
 		log.Fatal(err)
 	}
 
-	log.Printf("day10 part1 answer: %d\n", len(diff1)*len(diff3))
-	log.Printf("day10 part2 answer: %d\n", permutations)
+	log.Printf("day10 part 1 answer: %d", len(diff1)*len(diff3))
+	log.Printf("day10 part 2 answer: %d", permutations)
 }
 
 func applyDiff(x int, d1, d3, totalD []int) ([]int, []int, []int) {
