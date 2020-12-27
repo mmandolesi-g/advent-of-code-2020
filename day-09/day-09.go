@@ -56,7 +56,7 @@ func main() {
 		}
 
 		if !found {
-			log.Printf("day9 part1 answer: %d\n", sum)
+			log.Printf("day9 part 1 answer: %d", sum)
 			break
 		}
 	}
@@ -77,7 +77,7 @@ End:
 
 			if totalSum == invalidNumber {
 				sort.Ints(answers)
-				log.Printf("day9 part2 answer: %d\n", answers[0]+answers[len(answers)-1])
+				log.Printf("day9 part 2 answer: %d", answers[0]+answers[len(answers)-1])
 				break End
 			}
 

@@ -2,7 +2,6 @@ package main
 
 import (
 	"bufio"
-	"fmt"
 	"log"
 	"os"
 	"strconv"
@@ -34,7 +33,7 @@ end1:
 	for _, x := range num {
 		for _, y := range num {
 			if x+y == 2020 {
-				fmt.Printf("day1 part 1 answer: %d*%d=%d\n", x, y, x*y)
+				log.Printf("day1 part 1 answer: %d", x*y)
 				break end1
 			}
 		}
@@ -45,7 +44,7 @@ end2:
 		for _, y := range num {
 			for _, z := range num {
 				if x+y+z == 2020 {
-					fmt.Printf("day1 part 2 answer: %d*%d*%d=%d\n", x, y, z, x*y*z)
+					log.Printf("day1 part 2 answer: %d", x*y*z)
 					break end2
 				}
 			}

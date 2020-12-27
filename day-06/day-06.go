@@ -39,7 +39,7 @@ func main() {
 		answer1 = i + answer1
 	}
 
-	log.Printf("day6 part 1 answer: %d\n", answer1)
+	log.Printf("day6 part 1 answer: %d", answer1)
 	day6Part2()
 }
 
@@ -89,7 +89,7 @@ func day6Part2() {
 		answer = i + answer
 	}
 
-	log.Printf("day6 part 2 answer: %d\n", answer)
+	log.Printf("day6 part 2 answer: %d", answer)
 
 }
 

@@ -13,9 +13,8 @@ func main() {
 	answer7 := crawlRightByX(7, false)
 	answer12 := crawlRightByX(1, true)
 
-	log.Printf("day3 part 1 answer: %d\n", answer3)
-	log.Printf("day3 part 2 answer: %d*%d*%d*%d*%d=%d\n", answer1, answer5, answer3, answer7, answer12,
-		answer1*answer5*answer3*answer7*answer12)
+	log.Printf("day3 part 1 answer: %d", answer3)
+	log.Printf("day3 part 2 answer: %d", answer1*answer5*answer3*answer7*answer12)
 }
 
 func crawlRightByX(crawl int, twoDown bool) int {

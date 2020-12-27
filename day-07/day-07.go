@@ -79,11 +79,11 @@ func main() {
 	}
 
 	outer := make(map[string]*Node)
-	log.Printf("day7 part1 answer: %d\n", len(recursiveCount(b, outer)))
+	log.Printf("day7 part 1 answer: %d", len(recursiveCount(b, outer)))
 
 	var answer2 int
 	answer2 = recursiveCount2(b, 1, 0)
-	log.Printf("day7 part2 answer: %d\n", answer2)
+	log.Printf("day7 part 2 answer: %d", answer2)
 }
 
 func recursiveCount(node *Node, outer map[string]*Node) map[string]*Node {

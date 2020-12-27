@@ -79,7 +79,7 @@ func main() {
 		_ = stepThrough(steps)
 	}
 
-	log.Printf("day8 part1 answer: %d\n", 1)
+	log.Printf("day8 part 1 answer: %d", 1)
 }
 
 func stepThrough(steps []Step) int {
@@ -89,7 +89,7 @@ func stepThrough(steps []Step) int {
 
 	for i := 0; i < len(steps); i++ {
 		if i >= 600 {
-			log.Printf("day8 part2 answer: %d", accumulator)
+			log.Printf("day8 part 2 answer: %d", accumulator)
 		}
 
 		_, ok := m[i]

@@ -56,8 +56,8 @@ func main() {
 
 	answer2 := validatePassports(passports)
 
-	fmt.Printf("day4 part 1 answer: %d\n", answer)
-	fmt.Printf("day4 part 2 answer: %d\n", answer2)
+	log.Printf("day4 part 1 answer: %d", answer)
+	log.Printf("day4 part 2 answer: %d", answer2)
 }
 
 func validatePassports(passports []passport) int {

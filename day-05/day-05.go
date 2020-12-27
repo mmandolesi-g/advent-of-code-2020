@@ -46,11 +46,11 @@ func main() {
 	if seats == nil {
 		log.Fatal("seats is nil")
 	}
-	log.Printf("day5 part 1 answer: %d\n", seats[len(seats)-1])
+	log.Printf("day5 part 1 answer: %d", seats[len(seats)-1])
 	b := 84
 	for _, s := range seats {
 		if s != b {
-			log.Fatalf("day5 part 2 answer: %d\n", b)
+			log.Fatalf("day5 part 2 answer: %d", b)
 		}
 		b++
 	}

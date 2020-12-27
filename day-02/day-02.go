@@ -67,7 +67,7 @@ func main() {
 		}
 	}
 
-	log.Printf("day2 part 1 answer: %d\n", answer)
+	log.Printf("day2 part 1 answer: %d", answer)
 
 	var answer2 int
 	for _, p := range passwords {
@@ -80,5 +80,5 @@ func main() {
 		}
 	}
 
-	log.Printf("day2 part 2 answer: %d\n", answer2)
+	log.Printf("day2 part 2 answer: %d", answer2)
 }
