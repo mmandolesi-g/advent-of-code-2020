@@ -19,7 +19,7 @@ func main() {
 }
 
 func crawlRightByX(crawl int, twoDown bool) int {
-	f, err := os.Open("./day-3/input.txt")
+	f, err := os.Open("./day-03/input.txt")
 	if err != nil {
 		log.Fatal(err)
 	}

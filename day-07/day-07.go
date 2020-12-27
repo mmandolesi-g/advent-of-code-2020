@@ -16,7 +16,7 @@ type Node struct {
 }
 
 func main() {
-	f, err := os.Open("./day-7/input.txt")
+	f, err := os.Open("./day-07/input.txt")
 	if err != nil {
 		log.Fatal(err)
 	}
