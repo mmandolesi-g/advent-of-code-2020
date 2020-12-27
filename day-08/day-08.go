@@ -14,7 +14,7 @@ type Step struct {
 }
 
 func main() {
-	f, err := os.Open("./day-8/input.txt")
+	f, err := os.Open("./day-08/input.txt")
 	if err != nil {
 		log.Fatal(err)
 	}

@@ -9,7 +9,7 @@ import (
 )
 
 func main() {
-	f, err := os.Open("./day-6/input.txt")
+	f, err := os.Open("./day-06/input.txt")
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -59,7 +59,7 @@ func process61(data string) int {
 }
 
 func day6Part2() {
-	f, err := os.Open("./day-6/input.txt")
+	f, err := os.Open("./day-06/input.txt")
 	if err != nil {
 		log.Fatal(err)
 	}

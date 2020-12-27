@@ -22,7 +22,7 @@ type passport struct {
 }
 
 func main() {
-	f, err := os.Open("./day-4/input.txt")
+	f, err := os.Open("./day-04/input.txt")
 	if err != nil {
 		log.Fatal(err)
 	}

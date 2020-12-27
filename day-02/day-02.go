@@ -16,7 +16,7 @@ func main() {
 		Value  string `json:",value"`
 	}
 
-	f, err := os.Open("./day-2/input.txt")
+	f, err := os.Open("./day-02/input.txt")
 	if err != nil {
 		log.Fatal(err)
 	}
