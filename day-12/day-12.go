@@ -53,6 +53,43 @@ func main() {
 	}
 
 	log.Printf("day12 part 1 answer: %d", abs(positionX)+abs(positionY))
+
+	sx, sy := 0, 0  // Ship's x,y coordinates
+	wx, wy := 10, 1 // Waypoint's x,y coordinates
+	for _, node := range directions {
+		switch node.direction {
+		case "S":
+			wy = wy - node.amount
+		case "N":
+			wy = wy + node.amount
+		case "E":
+			wx = wx + node.amount
+		case "W":
+			wx = wx - node.amount
+		case "F":
+			sx = sx + (node.amount * wx)
+			sy = sy + (node.amount * wy)
+		case "R":
+			switch node.amount {
+			case 90:
+				wx, wy = rotateRight(wx, wy, 1)
+			case 180:
+				wx, wy = rotateRight(wx, wy, 2)
+			case 270:
+				wx, wy = rotateRight(wx, wy, 3)
+			}
+		case "L":
+			switch node.amount {
+			case 90:
+				wx, wy = rotateLeft(wx, wy, 1)
+			case 180:
+				wx, wy = rotateLeft(wx, wy, 2)
+			case 270:
+				wx, wy = rotateLeft(wx, wy, 3)
+			}
+		}
+	}
+	log.Printf("day12 part 2 answer: %d", abs(sx)+abs(sy))
 }
 
 func abs(x int) int {
@@ -60,6 +97,26 @@ func abs(x int) int {
 		return -x
 	}
 	return x
+}
+
+// rotateRight rotates x,y clockwise a given number of times.
+func rotateRight(x, y, times int) (int, int) {
+	for i := 0; i < times; i++ {
+		temp := y
+		y = -1 * x
+		x = temp
+	}
+	return x, y
+}
+
+// rotateLeft rotates x,y counterclockwise a given number of times.
+func rotateLeft(x, y, times int) (int, int) {
+	for i := 0; i < times; i++ {
+		temp := -1 * y
+		y = x
+		x = temp
+	}
+	return x, y
 }
 
 type node struct {
