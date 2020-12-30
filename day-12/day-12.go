@@ -2,7 +2,9 @@ package main
 
 import (
 	"bufio"
+	"fmt"
 	"log"
+	"math"
 	"os"
 	"regexp"
 	"strconv"
@@ -53,6 +55,39 @@ func main() {
 	}
 
 	log.Printf("day12 part 1 answer: %d", abs(positionX)+abs(positionY))
+
+	shipX := 0      // East, West
+	shipY := 0      // North, South
+	waypointX := 10 // East, West
+	waypointY := 1  // North, South
+	for _, node := range directions {
+		switch node.direction {
+		case "S":
+			waypointY = waypointY - node.amount
+		case "N":
+			waypointY = waypointY + node.amount
+		case "E":
+			waypointX = waypointX + node.amount
+		case "W":
+			waypointX = waypointX - node.amount
+		case "F":
+			shipX = shipX + (node.amount * waypointX)
+			shipY = shipY + (node.amount * waypointY)
+		case "R":
+
+			x := float64(waypointX)*math.Cos(float64(node.amount)) + float64(waypointY)*math.Sin(float64(node.amount))
+			y := -float64(waypointX)*math.Sin(float64(node.amount)) + float64(waypointY)*math.Cos(float64(node.amount))
+			fmt.Print(x)
+			fmt.Print(y)
+
+		case "L":
+			x := float64(waypointX)*math.Cos(float64(node.amount)) - float64(waypointY)*math.Sin(float64(node.amount))
+			y := float64(waypointX)*math.Sin(float64(node.amount)) + float64(waypointY)*math.Cos(float64(node.amount))
+			fmt.Print(x)
+			fmt.Print(y)
+		}
+	}
+	log.Printf("day12 part 2 answer: %d", abs(shipX)+abs(shipY))
 }
 
 func abs(x int) int {
