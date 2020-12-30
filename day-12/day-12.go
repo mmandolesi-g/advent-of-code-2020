@@ -2,9 +2,7 @@ package main
 
 import (
 	"bufio"
-	"fmt"
 	"log"
-	"math"
 	"os"
 	"regexp"
 	"strconv"
@@ -56,38 +54,42 @@ func main() {
 
 	log.Printf("day12 part 1 answer: %d", abs(positionX)+abs(positionY))
 
-	shipX := 0      // East, West
-	shipY := 0      // North, South
-	waypointX := 10 // East, West
-	waypointY := 1  // North, South
+	sx, sy := 0, 0  // Ship's x,y coordinates
+	wx, wy := 10, 1 // Waypoint's x,y coordinates
 	for _, node := range directions {
 		switch node.direction {
 		case "S":
-			waypointY = waypointY - node.amount
+			wy = wy - node.amount
 		case "N":
-			waypointY = waypointY + node.amount
+			wy = wy + node.amount
 		case "E":
-			waypointX = waypointX + node.amount
+			wx = wx + node.amount
 		case "W":
-			waypointX = waypointX - node.amount
+			wx = wx - node.amount
 		case "F":
-			shipX = shipX + (node.amount * waypointX)
-			shipY = shipY + (node.amount * waypointY)
+			sx = sx + (node.amount * wx)
+			sy = sy + (node.amount * wy)
 		case "R":
-
-			x := float64(waypointX)*math.Cos(float64(node.amount)) + float64(waypointY)*math.Sin(float64(node.amount))
-			y := -float64(waypointX)*math.Sin(float64(node.amount)) + float64(waypointY)*math.Cos(float64(node.amount))
-			fmt.Print(x)
-			fmt.Print(y)
-
+			switch node.amount {
+			case 90:
+				wx, wy = rotateRight(wx, wy, 1)
+			case 180:
+				wx, wy = rotateRight(wx, wy, 2)
+			case 270:
+				wx, wy = rotateRight(wx, wy, 3)
+			}
 		case "L":
-			x := float64(waypointX)*math.Cos(float64(node.amount)) - float64(waypointY)*math.Sin(float64(node.amount))
-			y := float64(waypointX)*math.Sin(float64(node.amount)) + float64(waypointY)*math.Cos(float64(node.amount))
-			fmt.Print(x)
-			fmt.Print(y)
+			switch node.amount {
+			case 90:
+				wx, wy = rotateLeft(wx, wy, 1)
+			case 180:
+				wx, wy = rotateLeft(wx, wy, 2)
+			case 270:
+				wx, wy = rotateLeft(wx, wy, 3)
+			}
 		}
 	}
-	log.Printf("day12 part 2 answer: %d", abs(shipX)+abs(shipY))
+	log.Printf("day12 part 2 answer: %d", abs(sx)+abs(sy))
 }
 
 func abs(x int) int {
@@ -95,6 +97,26 @@ func abs(x int) int {
 		return -x
 	}
 	return x
+}
+
+// rotateRight rotates x,y clockwise a given number of times.
+func rotateRight(x, y, times int) (int, int) {
+	for i := 0; i < times; i++ {
+		temp := y
+		y = -1 * x
+		x = temp
+	}
+	return x, y
+}
+
+// rotateLeft rotates x,y counterclockwise a given number of times.
+func rotateLeft(x, y, times int) (int, int) {
+	for i := 0; i < times; i++ {
+		temp := -1 * y
+		y = x
+		x = temp
+	}
+	return x, y
 }
 
 type node struct {
